@@ -8,11 +8,16 @@ use App\Models\Contactmessage;
 class ContactController extends Controller
 {
     public function index(){
-        return inertia('Contact/Index');
+        return inertia('Contact/Index', [
+            'contacts' => Contactmessage::all(),
+        ]);
     }
     public function create(){
+        
         return inertia('Contact/Create');
     }
+
+    
     public function store(Request $request){
         // dd($request);
         $request->validate([
