@@ -8,15 +8,13 @@ use App\Models\Contactmessage;
 class ContactController extends Controller
 {
     public function index(){
-        return inertia('Contact');
+        return inertia('Contact/Index');
+    }
+    public function create(){
+        return inertia('Contact/Create');
     }
     public function store(Request $request){
         // dd($request);
-
-            
-                  
-             
-
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -38,6 +36,6 @@ class ContactController extends Controller
             'message' => $request->message,
             'image' => $save,
         ]);
-        return redirect()->to('/')->with('message','Customer Created Successfully');
+        return redirect()->to('/contact')->with('message','Contact Created Successfully');
     }
 }

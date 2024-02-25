@@ -26,4 +26,5 @@ Route::get('/about', function(){
 });
 
 Route::get('/contact', [ContactController::class,'index']);
+Route::get('/contact/create', [ContactController::class,'create']);
 Route::post('/contact/store', [ContactController::class,'store']);
